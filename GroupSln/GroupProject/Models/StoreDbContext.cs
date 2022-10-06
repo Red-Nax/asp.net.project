@@ -6,6 +6,5 @@ public class StoreDbContext : DbContext
 {
     public StoreDbContext(DbContextOptions<StoreDbContext> options)
             : base(options) { }
-        //TODO Her skal ein relation gerast -!
-        //public DbSet<Product> Products => Set<Product>();
+        public DbSet<User> Users => Set<User>();
 }
