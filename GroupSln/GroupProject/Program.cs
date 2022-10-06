@@ -1,6 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using ASP_NetProject.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<StoreDbContext>(opts => {
+    opts.UseSqlServer(
+        builder.Configuration["ConnectionStrings:GroupProjectConnection"]);
+});
+
+builder.Services.AddScoped<IStoreRepository, EFStoreRepository>();
 
 var app = builder.Build();
 
