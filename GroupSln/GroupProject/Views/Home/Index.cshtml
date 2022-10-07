@@ -1,25 +1,26 @@
 ﻿@using ASP_NetProject.Models
 @model IQueryable<User>
 
+<div class="">
 @foreach (var p in Model ?? Enumerable.Empty<User>())
 {
-    <div>
-        <h3>@p.Name</h3>
-        @p.Password
-        <h4>@p.UserID</h4>
+    <div class="p-3">
+        <h5>Username: @p.Name</h5>
+        <h5>Password: @p.Password</h5>
+        <h5>UserID: @p.UserID</h5>
     </div>
 }
+</div>
+<div class="h-auto d-flex align-items-center justify-content-around">
 
-<div class="h-auto d-flex align-items-center justify-content-center">
-
-    <div class="text-center">
-        <label for="" class="text-center">Name</label>
-        <input type="text">
-    </div>
-    <div>
-        <label for="">Password</label>
-        <input type="password">
-    </div>
+    @* <div class="text-center"> *@
+    @*     <label for="" class="text-center">Name</label> *@
+    @*     <input type="text"> *@
+    @* </div> *@
+    @* <div> *@
+    @*     <label for="">Password</label> *@
+    @*     <input type="password"> *@
+    @* </div> *@
 
     <button class="home--button">
         test

@@ -19,4 +19,8 @@ public class HomeController : Controller
     
     
     public IActionResult Index() => View(repository.Users);
+
+
+    public IActionResult Register() => View();
+
 }
