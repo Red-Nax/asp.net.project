@@ -1,16 +1,4 @@
-﻿@using ASP_NetProject.Models
-@model IQueryable<User>
-
-<div class="">
-@foreach (var p in Model ?? Enumerable.Empty<User>())
-{
-    <div class="p-3">
-        <h5>Username: @p.Name</h5>
-        <h5>Password: @p.Password</h5>
-        <h5>UserID: @p.UserID</h5>
-    </div>
-}
-</div>
+﻿
 <div class="h-auto d-flex align-items-center justify-content-around">
 
     @* <div class="text-center"> *@

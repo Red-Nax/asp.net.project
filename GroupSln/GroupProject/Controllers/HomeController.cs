@@ -21,14 +21,22 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult Login(User user)
     {
-        repository.CreateUser(user);
-        return View();
+        if (ModelState.IsValid) {
+            repository.CreateUser(user);
+            return View("UserCreated", user);
+        }
+        else
+        {
+            return View();
+        }
+        //TODO CHECK FOR UNIQUE before CREATE USER
+
     }
 
 
     public async Task<IActionResult> Details()
     {
-        return View(repository.Users.ToList());
+        return View(repository.Users);
     }
 
     // [HttpGet]
