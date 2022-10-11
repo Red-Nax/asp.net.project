@@ -8,8 +8,8 @@ namespace ASP_NetProject.Controllers;
 
 public class HomeController : Controller
 {
-
     private IStoreRepository repository;
+    
     public HomeController(IStoreRepository repo)
     {
 
@@ -21,6 +21,12 @@ public class HomeController : Controller
     public IActionResult Index() => View(repository.Users);
 
 
-    public IActionResult Register() => View();
+    public IActionResult Login() => View();
+
+    public async Task<IActionResult> Details(long id = 1)
+    {
+        return View();
+        
+    }
 
 }
