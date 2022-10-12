@@ -29,5 +29,11 @@ public class EFStoreRepository : IStoreRepository
         _context.SaveChanges();
     }
 
+    public User SelectUser(long id)
+    {
+        User user = _context.Users.Single(x => x.UserID == id);
+        return user;
+    }
+
     
 }

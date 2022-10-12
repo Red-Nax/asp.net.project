@@ -8,6 +8,8 @@ public interface IStoreRepository
     void SaveUser(User u);
     void CreateUser(User u);
     void DeleteUser(long id);
-    
-    
+
+    User SelectUser(long id);
+
+
 }

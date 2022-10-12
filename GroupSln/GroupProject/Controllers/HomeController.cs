@@ -46,14 +46,14 @@ public class HomeController : Controller
     
     public IActionResult DetailsUser(long id)
     {
-        return View();
-        
+        User user = repository.SelectUser(id);
+        return View("DetailsUser", user);
     }
     
     public IActionResult DeleteUser(long id)
     {
         repository.DeleteUser(id);
-        return View();
+        return View("Details");
     }
 
 }
