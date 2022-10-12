@@ -41,7 +41,16 @@ public class HomeController : Controller
 
     public IActionResult EditUser(long id)
     {
-        return View();
+        User user = repository.SelectUser(id);
+        return View("EditUser", user);
+    }
+    
+    [HttpPost]
+    public IActionResult EditUser(User user)
+    {
+        repository.SaveUser(user);
+        
+        return View("Details");
     }
     
     public IActionResult DetailsUser(long id)

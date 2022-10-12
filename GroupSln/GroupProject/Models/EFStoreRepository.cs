@@ -1,4 +1,6 @@
-﻿namespace ASP_NetProject.Models;
+﻿using ASP_NetProject.Models;
+
+namespace GroupProject.Models;
 
 public class EFStoreRepository : IStoreRepository
 {

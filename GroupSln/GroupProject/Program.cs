@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ASP_NetProject.Models;
+using GroupProject.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
