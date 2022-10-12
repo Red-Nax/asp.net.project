@@ -16,9 +16,11 @@ public class EFStoreRepository : IStoreRepository
         _context.SaveChanges();
     }
     
-    public void DeleteUser(User u)
+    public void DeleteUser(long id)
     {
-        _context.Remove(u);
+        // IEnumerable<User> users = _context.Users.Where(x => x.UserID == id); 
+        User user = _context.Users.Single(x => x.UserID == id);
+        _context.Remove(user);
         _context.SaveChanges();
     }
     
@@ -26,4 +28,6 @@ public class EFStoreRepository : IStoreRepository
     {
         _context.SaveChanges();
     }
+
+    
 }

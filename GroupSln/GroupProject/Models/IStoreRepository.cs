@@ -7,5 +7,7 @@ public interface IStoreRepository
     
     void SaveUser(User u);
     void CreateUser(User u);
-    void DeleteUser(User u);
+    void DeleteUser(long id);
+    
+    
 }

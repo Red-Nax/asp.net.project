@@ -4,7 +4,7 @@ namespace ASP_NetProject.Models;
 
 public class User
 {
-    public string UserID { get; set; }
+    public long? UserID { get; set; }
     
     [Required(ErrorMessage = "Please enter your name")]
     public String Username { get; set; }

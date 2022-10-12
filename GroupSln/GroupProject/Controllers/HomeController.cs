@@ -24,28 +24,23 @@ public class HomeController : Controller
         if (ModelState.IsValid) {
             repository.CreateUser(user);
             return View("UserCreated", user);
-        }
-        else
+        } else
         {
             return View();
         }
         //TODO CHECK FOR UNIQUE before CREATE USER
-
     }
 
 
-    public async Task<IActionResult> Details()
+    public IActionResult Details()
     {
         return View(repository.Users);
     }
 
-    // [HttpGet]
-    // public ViewResult RsvpForm() {
-    //     return View();
-    // }
-    // [HttpPost]
-    // public ViewResult RsvpForm(GuestResponse guestResponse) {
-    //     // TODO: store response from guest
-    //     return View();
-    // }
+    public IActionResult Delete(long id)
+    {
+        repository.DeleteUser(id);
+        return View();
+    }
+
 }

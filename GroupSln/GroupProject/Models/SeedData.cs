@@ -16,7 +16,7 @@ public static class SeedData
         if (!context.Users.Any())
         {
             context.Users.AddRange(
-                new User { Username = "Admin", Password = "1234", UserID = "1" }
+                new User { Username = "Admin", Password = "1234" }
             );
 
             context.SaveChanges();

@@ -8,6 +8,8 @@
                   <h5>Username: @p.Username</h5>
                   <h5>Password: @p.Password</h5>
                   <h5>UserID: @p.UserID</h5>
+                  <a asp-action="Delete" asp-route-id="@p.UserID"
+                   class="btn btn-sm btn-danger">Delete</a>
             </div>
       }
 </div>
