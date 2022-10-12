@@ -37,7 +37,20 @@ public class HomeController : Controller
         return View(repository.Users);
     }
 
-    public IActionResult Delete(long id)
+
+
+    public IActionResult EditUser(long id)
+    {
+        return View();
+    }
+    
+    public IActionResult DetailsUser(long id)
+    {
+        return View();
+        
+    }
+    
+    public IActionResult DeleteUser(long id)
     {
         repository.DeleteUser(id);
         return View();

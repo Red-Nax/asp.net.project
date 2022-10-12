@@ -2,14 +2,24 @@
 @model IQueryable<User>
 
 <div class="">
-      @foreach (var p in Model ?? Enumerable.Empty<User>())
-      {
-            <div class="p-3">
-                  <h5>Username: @p.Username</h5>
-                  <h5>Password: @p.Password</h5>
-                  <h5>UserID: @p.UserID</h5>
-                  <a asp-action="Delete" asp-route-id="@p.UserID"
-                   class="btn btn-sm btn-danger">Delete</a>
-            </div>
-      }
+    @foreach (var p in Model ?? Enumerable.Empty<User>())
+    {
+        <div class="p-3">
+            <h5>Username: @p.Username</h5>
+            <h5>Password: @p.Password</h5>
+            <h5>UserID: @p.UserID</h5>
+            <a asp-action="DetailsUser" asp-route-id="@p.UserID"
+               class="btn btn-sm btn-info">
+                Details
+            </a>
+            <a asp-action="EditUser" asp-route-id="@p.UserID"
+               class="btn btn-sm btn-warning">
+                Edit
+            </a>
+            <a asp-action="DeleteUser" asp-route-id="@p.UserID"
+               class="btn btn-sm btn-danger">
+                Delete
+            </a>
+        </div>
+    }
 </div>
