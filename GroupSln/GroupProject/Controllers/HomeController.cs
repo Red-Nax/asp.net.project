@@ -66,13 +66,13 @@ public class HomeController : Controller
     
     public IActionResult DeleteUser(long id)
     {
-        repository.Delete(id);
+        repository.DeleteUser(id);
         return View("Details");
     }
 
     public IActionResult DeleteToDo(long id)
     {
-        repository.Delete(id);
+        repository.DeleteToDo(id);
         return View("Details");
     }
 

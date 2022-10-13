@@ -22,6 +22,4 @@ public class ToDo
     public DateTime? EndTime { get; set; }
     public string? Description { get; set; }
     
-    
-    
 }

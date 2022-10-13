@@ -13,7 +13,8 @@ public interface IStoreRepository
     void Save(ToDo t);
     
     // General instances
-    void Delete(long id);
+    void DeleteUser(long id);
+    void DeleteToDo(long id);
     
     User Select(long id);
 

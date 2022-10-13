@@ -5,13 +5,22 @@
 <div>
     <div class="col-6 d-flex flex-column justify-content-center align-content-center p-3">
 
-        @foreach (var p in Model.todos ?? Enumerable.Empty<ToDo>())
+        @foreach (var t in Model.todos ?? Enumerable.Empty<ToDo>())
         {
             <div class="d-row flex-column p-2">
-                <h5>@p.TaskTitle</h5>
-                <h5>@p.Description</h5>
-                <h5>@p.CreatorOfTask</h5>
-                <a asp-action="DeleteToDo" asp-route-id="@p.ToDoID"><i class="fa-solid fa-trash pointer-event"></i></a>
+                <h5>@t.TaskTitle</h5>
+                <h5>@t.Description</h5>
+                <h5>@t.CreatorOfTask</h5>
+                <h5>@foreach (var u in Model.users ?? Enumerable.Empty<User>())
+                    {
+                        
+                        if (@u.UserId == @t.UserId)
+                        {
+                            @u.Username
+                        }
+                    }</h5>
+                
+                <a asp-action="DeleteToDo" asp-route-id="@t.ToDoID"><i class="fa-solid fa-trash pointer-event"></i></a>
             </div>
         }
     </div>
@@ -38,11 +47,16 @@
             </div>
 
             <select asp-for="UserId" name="Users" id="">
-                @foreach (var p in Model.users ?? Enumerable.Empty<User>())
+                @foreach (var u in Model.users ?? Enumerable.Empty<User>())
                 {
-                    <option value="@p.UserId">@p.Username</option>
+                    <option value="@u.UserId">@u.Username</option>
                 }
             </select>
+            
+            @foreach (var p in Model.users ?? Enumerable.Empty<User>())
+            {
+                @p.Username <div>og id er </div> @p.UserId
+            }
 
             <input type="datetime-local" asp-for="EndTime">
 

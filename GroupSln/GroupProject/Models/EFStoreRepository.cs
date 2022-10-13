@@ -29,11 +29,19 @@ public class EFStoreRepository : IStoreRepository
         throw new NotImplementedException();
     }
 
-    public void Delete(long id)
+    public void DeleteUser(long id)
     {
         // IEnumerable<User> users = _context.Users.Where(x => x.UserID == id); 
         User user = _context.Users.Single(x => x.UserId == id);
         _context.Remove(user);
+        _context.SaveChanges();
+    }
+    
+    public void DeleteToDo(long id)
+    {
+        // IEnumerable<User> users = _context.Users.Where(x => x.UserID == id); 
+        ToDo todo = _context.ToDos.Single(x => x.ToDoID == id);
+        _context.Remove(todo);
         _context.SaveChanges();
     }
     
