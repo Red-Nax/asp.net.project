@@ -8,12 +8,13 @@ public interface IStoreRepository
 
     // Instance overload
     void Create(User u);
-    void Create(Task t);
+    void Create(ToDo t);
     void Save(User u);
-    void Save(Task t);
+    void Save(ToDo t);
     
     // General instances
     void Delete(long id);
+    
     User Select(long id);
 
 

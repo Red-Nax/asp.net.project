@@ -18,12 +18,13 @@ public class EFStoreRepository : IStoreRepository
         _context.SaveChanges();
     }
 
-    public void Create(Task t)
+    public void Create(ToDo t)
     {
-        throw new NotImplementedException();
+        _context.Add(t);
+        _context.SaveChanges();
     }
 
-    public void Save(Task t)
+    public void Save(ToDo t)
     {
         throw new NotImplementedException();
     }

@@ -70,9 +70,37 @@ public class HomeController : Controller
         return View("Details");
     }
 
+    public IActionResult DeleteToDo(long id)
+    {
+        repository.Delete(id);
+        return View("Details");
+    }
+
     public IActionResult ToDo()
     {
-        return View(repository.ToDos);
+        UserViewModel userViewModel = 
+            new UserViewModel { users = repository.Users, todos = repository.ToDos };
+        return View(userViewModel);
+    }
+    
+    [HttpPost]
+    public IActionResult ToDo(UserViewModel userViewModel)
+    {
+        
+        ToDo td = new ToDo
+        {
+            CreatorOfTask = userViewModel.CreatorOfTask,
+            TaskTitle = userViewModel.TaskTitle,
+            Description = userViewModel.Description,
+            StartTime = DateTime.Now,
+            EndTime = userViewModel.EndTime,
+            UserId = userViewModel.UserId
+        };
+        
+        repository.Create(td);
+        
+       UserViewModel uw = new UserViewModel { users = repository.Users, todos = repository.ToDos };
+        return View(uw);
     }
     
 }
