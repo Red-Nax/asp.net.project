@@ -66,4 +66,9 @@ public class HomeController : Controller
         return View("Details");
     }
 
+    public IActionResult ToDo()
+    {
+        return View(repository.ToDos);
+    }
+    
 }
