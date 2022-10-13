@@ -38,6 +38,10 @@ public class HomeController : Controller
         return View(repository.Users);
     }
 
+    public IActionResult Users()
+    {
+        return View();
+    }
 
 
     public IActionResult EditUser(long id)
