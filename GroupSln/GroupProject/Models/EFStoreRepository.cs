@@ -47,6 +47,7 @@ public class EFStoreRepository : IStoreRepository
     
     public void Save(User u)
     {
+        _context.Update(u);
         _context.SaveChanges();
     }
 

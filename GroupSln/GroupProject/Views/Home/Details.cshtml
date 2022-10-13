@@ -6,7 +6,7 @@
     @foreach (var p in Model ?? Enumerable.Empty<User>())
     {
         <div class="p-3">
-            <h5>Username: @p.Username</h5>
+            <h5>Username: @p.Username </h5>
             <h5>Password: @p.Password</h5>
             <h5>UserID: @p.UserId</h5>
             <a asp-action="DetailsUser" asp-route-id="@p.UserId"
