@@ -1,5 +1,4 @@
-﻿using ASP_NetProject.Models;
-
+﻿
 namespace GroupProject.Models;
 
 public class EFStoreRepository : IStoreRepository
@@ -11,29 +10,40 @@ public class EFStoreRepository : IStoreRepository
         _context = ctx;
     }
     public IQueryable<User> Users => _context.Users;
+    public IQueryable<ToDo> ToDos => _context.ToDos;
 
-    public void CreateUser(User u)
+    public void Create(User u)
     {
         _context.Add(u);
         _context.SaveChanges();
     }
-    
-    public void DeleteUser(long id)
+
+    public void Create(Task t)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Save(Task t)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Delete(long id)
     {
         // IEnumerable<User> users = _context.Users.Where(x => x.UserID == id); 
-        User user = _context.Users.Single(x => x.UserID == id);
+        User user = _context.Users.Single(x => x.UserId == id);
         _context.Remove(user);
         _context.SaveChanges();
     }
     
-    public void SaveUser(User u)
+    public void Save(User u)
     {
         _context.SaveChanges();
     }
 
-    public User SelectUser(long id)
+    public User Select(long id)
     {
-        User user = _context.Users.Single(x => x.UserID == id);
+        User user = _context.Users.Single(x => x.UserId == id);
         return user;
     }
 

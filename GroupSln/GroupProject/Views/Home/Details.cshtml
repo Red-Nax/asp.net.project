@@ -1,5 +1,6 @@
 ﻿@using ASP_NetProject.Models
-@model IQueryable<User>
+@using GroupProject.Models
+@model IQueryable<GroupProject.Models.User>
 
 <div class="">
     @foreach (var p in Model ?? Enumerable.Empty<User>())
@@ -7,16 +8,16 @@
         <div class="p-3">
             <h5>Username: @p.Username</h5>
             <h5>Password: @p.Password</h5>
-            <h5>UserID: @p.UserID</h5>
-            <a asp-action="DetailsUser" asp-route-id="@p.UserID"
+            <h5>UserID: @p.UserId</h5>
+            <a asp-action="DetailsUser" asp-route-id="@p.UserId"
                class="btn btn-sm btn-info">
                 Details
             </a>
-            <a asp-action="EditUser" asp-route-id="@p.UserID"
+            <a asp-action="EditUser" asp-route-id="@p.UserId"
                class="btn btn-sm btn-warning">
                 Edit
             </a>
-            <a asp-action="DeleteUser" asp-route-id="@p.UserID"
+            <a asp-action="DeleteUser" asp-route-id="@p.UserId"
                class="btn btn-sm btn-danger">
                 Delete
             </a>

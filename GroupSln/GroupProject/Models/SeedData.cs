@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using GroupProject.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ASP_NetProject.Models;
 
@@ -21,5 +22,16 @@ public static class SeedData
 
             context.SaveChanges();
         }
+        
+        if (!context.ToDos.Any())
+        {
+            context.ToDos.AddRange(
+                new ToDo { CreatorOfTask = "Alex", Description = "Støvsugva", StartTime = DateTime.Now, EndTime = DateTime.Now, TaskTitle = "FUCKING GER OKKURT", UserId = 2}
+            );
+
+            context.SaveChanges();
+        }
+
+      
     }
 }
