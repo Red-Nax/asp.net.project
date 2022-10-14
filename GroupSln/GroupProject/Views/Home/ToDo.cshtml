@@ -5,10 +5,37 @@
 <div class="container">
     <div class="row position-relative">
         <div class="col-6 d-flex flex-column justify-content-center align-content-center p-3">
-
+            
             @foreach (var t in Model.todos ?? Enumerable.Empty<ToDo>())
             {
-                <div class="d-row flex-column p-2">
+
+                Time time = new Time(DateTime.Now, t.EndTime);
+                var deltaT = time.calculate();
+                var colorForTimeDiff = "";
+
+                @* @deltaT *@
+                
+                if (deltaT >= 12)
+                {
+                    colorForTimeDiff = "bg-success";
+                }
+                
+                if (deltaT < 12)
+                {
+                    colorForTimeDiff = "bg-info";
+                }
+                
+                if (deltaT <= 6)
+                {
+                    colorForTimeDiff = "bg-warning";
+                }
+                
+                if (deltaT <= 2)
+                {
+                    colorForTimeDiff = "bg-danger";
+                }
+            
+                <div class="d-row flex-column rounded-2 p-2 m-1 @colorForTimeDiff">
                     <h5>@t.TaskTitle</h5>
                     <h5>@t.Description</h5>
                     <h5>@t.CreatorOfTask</h5>
@@ -65,7 +92,7 @@
                 @*     @p.Username <div>og id er </div> @p.UserId *@
                 @* } *@
 
-                <input type="datetime-local" asp-for="EndTime">
+                <input type="datetime-local" value="DateTime.Now" asp-for="EndTime">
 
 
                 <button type="submit">Submit</button>
