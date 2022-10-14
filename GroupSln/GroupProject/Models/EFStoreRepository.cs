@@ -57,5 +57,8 @@ public class EFStoreRepository : IStoreRepository
         return user;
     }
 
-    
+    public ToDo selectToDo(long id)
+    {
+        return _context.ToDos.Single(x => x.ToDoID == id);
+    }
 }

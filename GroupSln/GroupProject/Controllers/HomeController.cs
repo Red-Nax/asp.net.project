@@ -102,5 +102,12 @@ public class HomeController : Controller
        UserViewModel uw = new UserViewModel { users = repository.Users, todos = repository.ToDos };
         return View(uw);
     }
+
+    
+    public IActionResult DetailsToDo(long id)
+    {
+        ToDo toDo = repository.selectToDo(id);
+        return View("DetailsTodo",toDo);
+    }
     
 }
