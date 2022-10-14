@@ -40,7 +40,7 @@ public class HomeController : Controller
 
     public IActionResult Users()
     {
-        return View();
+        return View(repository.Users);
     }
 
 
@@ -67,13 +67,15 @@ public class HomeController : Controller
     public IActionResult DeleteUser(long id)
     {
         repository.DeleteUser(id);
-        return View("Details");
+        //return View();
+        return Redirect("/home/users");
     }
 
     public IActionResult DeleteToDo(long id)
     {
         repository.DeleteToDo(id);
-        return View("Details");
+        //return View("Details");
+        return Redirect("/home/ToDo");
     }
 
     public IActionResult ToDo()
