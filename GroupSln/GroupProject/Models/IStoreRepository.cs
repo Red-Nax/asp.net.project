@@ -10,6 +10,7 @@ public interface IStoreRepository
     void Create(User u);
     void Create(ToDo t);
     void Save(User u);
+    
     void Save(ToDo t);
     
     // General instances

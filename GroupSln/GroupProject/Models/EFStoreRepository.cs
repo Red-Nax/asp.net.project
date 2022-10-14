@@ -24,9 +24,12 @@ public class EFStoreRepository : IStoreRepository
         _context.SaveChanges();
     }
 
+   
+
     public void Save(ToDo t)
     {
-        throw new NotImplementedException();
+        _context.Update(t);
+        _context.SaveChanges();
     }
 
     public void DeleteUser(long id)
@@ -60,5 +63,8 @@ public class EFStoreRepository : IStoreRepository
     public ToDo selectToDo(long id)
     {
         return _context.ToDos.Single(x => x.ToDoID == id);
+        
     }
+    
+    
 }

@@ -14,7 +14,7 @@ public class Time
         this.deadline = deadline;
     }
 
-    public double calculate()
+    public double Calculate()
     {
         TimeSpan timeDifference = deadline - now;
         return timeDifference.TotalHours;

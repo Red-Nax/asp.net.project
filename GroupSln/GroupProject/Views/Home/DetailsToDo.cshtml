@@ -1,33 +1,32 @@
 ﻿@using GroupProject.Models
-@model GroupProject.Models.ToDo
+@model GroupProject.Models.DetailsTodoViewModels
 
 <div class="d-flex flex-column justify-content-center align-items-left">
     <div class="m-1 p-1">
-        @Model.ToDoID
+        @Model.ToDo.ToDoID
     </div>
     <div class="m-1 p-1">
 
-        @Model.TaskTitle
+        @Model.ToDo.TaskTitle
     </div>
     <div class="m-1 p-1">
 
-        @Model.Description
+        @Model.ToDo.Description
+    </div>
+    <div class="m-1 p-1">
+        @Model.ToDo.CreatorOfTask
     </div>
     <div class="m-1 p-1">
 
-        @Model.CreatorOfTask
+        @Model.ToDo.StartTime
     </div>
     <div class="m-1 p-1">
 
-        @Model.StartTime
+        @Model.ToDo.EndTime
     </div>
     <div class="m-1 p-1">
 
-        @Model.EndTime
-    </div>
-    <div class="m-1 p-1">
-
-        @Model.UserId
+        @Model.Username
     </div>
 
 </div>

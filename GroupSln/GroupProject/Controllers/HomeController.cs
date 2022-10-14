@@ -109,7 +109,52 @@ public class HomeController : Controller
     public IActionResult DetailsToDo(long id)
     {
         ToDo toDo = repository.selectToDo(id);
-        return View("DetailsTodo",toDo);
+        
+        User user = repository.Select(toDo.UserId);
+
+        DetailsTodoViewModels dtw = new DetailsTodoViewModels { ToDo = toDo, Username = user.Username };
+        
+        return View("DetailsTodo",dtw);
+    }
+
+    public IActionResult EditTodo(long id)
+    {
+        ToDo toDo = repository.selectToDo(id);
+        
+        User user = repository.Select(toDo.UserId);
+
+        DetailsTodoViewModels dtw = new DetailsTodoViewModels { ToDo = toDo, Username = user.Username, users = repository.Users};
+        
+        return View("EditTodo",dtw);
+         
+    }
+    
+    [HttpPost]
+    public IActionResult EditTodo(DetailsTodoViewModels detailsTodoViewModels)
+    {
+
+        ToDo toDo = new ToDo
+        {
+            CreatorOfTask = @detailsTodoViewModels.ToDo.CreatorOfTask,
+            TaskTitle = @detailsTodoViewModels.ToDo.TaskTitle,
+            Description = detailsTodoViewModels.ToDo.Description,
+            StartTime = detailsTodoViewModels.ToDo.StartTime,
+            EndTime = detailsTodoViewModels.ToDo.EndTime,
+            ToDoID = detailsTodoViewModels.ToDo.ToDoID,
+            UserId = detailsTodoViewModels.ToDo.UserId
+        };
+        
+        // ToDo toDo = repository.selectToDo(id);
+        
+        // User user = repository.Select(toDo.UserId);
+
+        repository.Save(toDo);
+        
+        // DetailsTodoViewModels dtw = new DetailsTodoViewModels { ToDo = toDo, Username = user.Username, users = repository.Users};
+        
+        // return View("EditTodo",dtw);
+
+        return Redirect("/home/ToDo");
     }
     
 }

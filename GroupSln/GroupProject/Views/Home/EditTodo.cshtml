@@ -1,0 +1,40 @@
+﻿@using GroupProject.Models
+@model GroupProject.Models.DetailsTodoViewModels
+
+<form action="" method="post">
+
+    <div asp-validation-summary="All"></div>
+
+    <div class="form-group">
+        <input asp-for="ToDo.TaskTitle" class="form-control">
+        <label asp-for="ToDo.TaskTitle" class="form-label">Title</label>
+    </div>
+
+    <div class="form-group">
+        <input asp-for="ToDo.Description" class="form-control">
+        <label asp-for="ToDo.Description" class="form-label" for="">Description</label>
+    </div>
+
+    <div class="form-group">
+        <input asp-for="ToDo.CreatorOfTask" value="pleb" class="form-control" hidden>
+        <label asp-for="ToDo.CreatorOfTask" class="form-label" for="" hidden></label>
+    </div>
+
+    <select asp-for="ToDo.UserId" name="UserID">
+        @foreach (var u in Model.users ?? Enumerable.Empty<User>())
+        {
+            <option value="@u.UserId">@u.Username </option>
+        }
+    </select>
+
+    @* @foreach (var p in Model.users ?? Enumerable.Empty<User>()) *@
+    @* { *@
+    @*     @p.Username <div>og id er </div> @p.UserId *@
+    @* } *@
+
+    <input type="datetime-local" value="2018-06-12T19:30" asp-for="ToDo.EndTime">
+
+
+    <button type="submit">Submit</button>
+
+</form>

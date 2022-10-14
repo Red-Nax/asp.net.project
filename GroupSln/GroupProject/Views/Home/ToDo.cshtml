@@ -9,7 +9,7 @@
             @foreach (var t in Model.todos ?? Enumerable.Empty<ToDo>())
             {
                 Time time = new Time(DateTime.Now, t.EndTime);
-                var deltaT = time.calculate();
+                var deltaT = time.Calculate();
                 var colorForTimeDiff = "";
 
                 @* @deltaT *@
@@ -34,32 +34,38 @@
                     colorForTimeDiff = "bg-danger";
                 }
 
-                <div class="d-row flex-column rounded-2 p-2 m-1 @colorForTimeDiff">
-                    <h5>@t.TaskTitle</h5>
-                    <h5>@t.Description</h5>
-                    <h5>@t.CreatorOfTask</h5>
-                    <h5>
-                        @foreach (var u in Model.users ?? Enumerable.Empty<User>())
-                        {
-                            if (@u.UserId == @t.UserId)
-                            {
-                                @u.Username
-                            }
-                        }
-                    </h5>
-                    <a asp-action="DeleteToDo" asp-route-id="@t.ToDoID">
-                        <i class="fa-solid fa-pencil"></i>
-                    </a>
+                <div class="d-row flex-row rounded-2 p-2 m-1 @colorForTimeDiff">
+                    <div class="d-flex flex-row">
+                        <div>
+                            <h5>@t.TaskTitle</h5>
+                            <h5>@t.Description</h5>
+                            <h5>@t.CreatorOfTask</h5>
 
-                    <a asp-action="DeleteToDo" asp-route-id="@t.ToDoID">
-                        <i class="fa-solid fa-trash pointer-event"></i>
-                    </a>
+                            <h5>
+                                @foreach (var u in Model.users ?? Enumerable.Empty<User>())
+                                {
+                                    if (@u.UserId == @t.UserId)
+                                    {
+                                        @u.Username
+                                    }
+                                }
+                            </h5>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center align-items-right">
+                            <a asp-action="EditToDo" asp-route-id="@t.ToDoID">
+                                <i class="mw-100 hw-100 fa-solid fa-pencil"></i>
+                            </a>
 
-                    <a asp-action="DetailsTodo" asp-route-id="@t.ToDoID">
-                       <i class="fa-solid fa-trash pointer-event"></i>
+                            <a asp-action="DeleteToDo" asp-route-id="@t.ToDoID">
+                                <i class="fa-solid fa-trash pointer-event"></i>
+                            </a>
 
-                    </a>
-                </div>
+                            <a asp-action="DetailsTodo" asp-route-id="@t.ToDoID">
+                                <i class="fal fa-info-circle"></i>
+                            </a>
+                        </div>
+                    </div>
+                    </div>
             }
         </div>
 
