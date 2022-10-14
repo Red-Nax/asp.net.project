@@ -34,9 +34,9 @@
                     colorForTimeDiff = "bg-danger";
                 }
 
-                <div class="d-row flex-row rounded-2 p-2 m-1 @colorForTimeDiff">
-                    <div class="d-flex flex-row">
-                        <div>
+                <div class="container d-row flex-row rounded-2 p-2 m-1 @colorForTimeDiff">
+                    <div class="row d-flex flex-row">
+                        <div class="col-10">
                             <h5>@t.TaskTitle</h5>
                             <h5>@t.Description</h5>
                             <h5>@t.CreatorOfTask</h5>
@@ -51,7 +51,7 @@
                                 }
                             </h5>
                         </div>
-                        <div class="d-flex flex-column justify-content-center align-items-right">
+                        <div class="col-auto d-flex flex-column justify-content-center align-items-right">
                             <a asp-action="EditToDo" asp-route-id="@t.ToDoID">
                                 <i class="mw-100 hw-100 fa-solid fa-pencil"></i>
                             </a>
@@ -71,43 +71,47 @@
 
 
         <div class="col-4" style="position: fixed; right: 120px; top: 30%;">
-            <form action="" method="post">
+            @if (LoggedInUser.LoggedIn)
+            {
+                <form action="" method="post">
 
-                <div asp-validation-summary="All"></div>
+                    <div asp-validation-summary="All"></div>
 
-                <div class="form-group">
-                    <input asp-for="TaskTitle" class="form-control">
-                    <label asp-for="TaskTitle" class="form-label">Title</label>
-                </div>
+                    <div class="form-group">
+                        <input asp-for="TaskTitle" class="form-control">
+                        <label asp-for="TaskTitle" class="form-label">Title</label>
+                    </div>
 
-                <div class="form-group">
-                    <input asp-for="Description" class="form-control">
-                    <label asp-for="Description" class="form-label" for="">Description</label>
-                </div>
+                    <div class="form-group">
+                        <input asp-for="Description" class="form-control">
+                        <label asp-for="Description" class="form-label" for="">Description</label>
+                    </div>
 
-                <div class="form-group">
-                    <input asp-for="CreatorOfTask" value="pleb" class="form-control" hidden>
-                    <label asp-for="CreatorOfTask" class="form-label" for="" hidden></label>
-                </div>
+                    <div class="form-group">
+                        <input asp-for="CreatorOfTask" value="" class="form-control" hidden>
+                        <label asp-for="CreatorOfTask" class="form-label" for="" hidden></label>
+                    </div>
 
-                <select asp-for="UserId" name="UserID">
-                    @foreach (var u in Model.users ?? Enumerable.Empty<User>())
-                    {
-                        <option value="@u.UserId">@u.Username </option>
-                    }
-                </select>
+                    <select asp-for="UserId" name="UserID">
+                        @foreach (var u in Model.users ?? Enumerable.Empty<User>())
+                        {
+                            <option value="@u.UserId">@u.Username </option>
+                        }
+                    </select>
 
-                @* @foreach (var p in Model.users ?? Enumerable.Empty<User>()) *@
-                @* { *@
-                @*     @p.Username <div>og id er </div> @p.UserId *@
-                @* } *@
+                    @* @foreach (var p in Model.users ?? Enumerable.Empty<User>()) *@
+                    @* { *@
+                    @*     @p.Username <div>og id er </div> @p.UserId *@
+                    @* } *@
 
-                <input type="datetime-local" value="DateTime.Now" asp-for="EndTime">
+                    <input type="datetime-local" value="DateTime.Now" asp-for="EndTime">
 
 
-                <button type="submit">Submit</button>
+                    <button type="submit">Submit</button>
 
-            </form>
+                </form>
+            }
+            
         </div>
     </div>
 </div>

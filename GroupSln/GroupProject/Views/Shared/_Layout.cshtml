@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using GroupProject.Models
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +15,11 @@
     <div style="height: 3rem" class="d-flex justify-content-around align-items-center border-bottom">
         <a asp-action="Index" class="btn">Home</a>
         <a asp-action="ToDo" class="btn">Tasks</a>
-        <a asp-action="Users" class="btn">Users</a>
+        @if (LoggedInUser.LoggedIn && LoggedInUser.User == "Admin")
+        {
+            <a asp-action="Users" class="btn">Users</a>
+        }
+        
         <a asp-action="Login" class="btn">Login</a>
         <a asp-action="SignUp" class="btn">Sign up</a>
     </div>

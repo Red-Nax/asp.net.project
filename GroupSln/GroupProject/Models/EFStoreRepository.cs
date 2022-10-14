@@ -60,6 +60,13 @@ public class EFStoreRepository : IStoreRepository
         return user;
     }
 
+    public User SelectByName(string username)
+    {
+        User user = _context.Users.Single(x => x.Username == username);
+        return user;
+    }
+
+
     public ToDo selectToDo(long id)
     {
         return _context.ToDos.Single(x => x.ToDoID == id);

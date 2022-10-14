@@ -19,6 +19,8 @@ public interface IStoreRepository
     
     User Select(long id);
 
+    User SelectByName(string username);
+
     ToDo selectToDo(long id);
 
 

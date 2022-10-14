@@ -34,7 +34,21 @@ public class HomeController : Controller
 
     public IActionResult Login()
     {
-        return View(repository.Users);
+        return View();
+    }
+    
+    [HttpPost]
+    public IActionResult Login(User user)
+    {
+        User u = repository.SelectByName(user.Username);
+
+        if (user.Username == u.Username && user.Password == u.Password)
+        {
+            LoggedInUser.LoggedIn = true;
+            LoggedInUser.User = user.Username;
+        }
+
+        return Redirect("/");
     }
     
     
