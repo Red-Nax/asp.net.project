@@ -1,0 +1,10 @@
+﻿dotnet new globaljson --sdk-version 6.0.100 --output GroupSln/GroupProject
+dotnet new web --no-https --output GroupSln/GroupProject --framework net6.0
+dotnet new sln -o GroupSln
+dotnet sln GroupSln add GroupSln/GroupProject
+
+dotnet ef migrations add Initial
+
+dotnet ef migrations remove
+
+dotnet ef database drop --force --context StoreDbContext
