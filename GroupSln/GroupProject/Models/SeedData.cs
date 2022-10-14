@@ -26,7 +26,7 @@ public static class SeedData
         if (!context.ToDos.Any())
         {
             context.ToDos.AddRange(
-                new ToDo { CreatorOfTask = "Alex", Description = "Støvsugva", StartTime = DateTime.Now, EndTime = DateTime.Now, TaskTitle = "FUCKING GER OKKURT", UserId = 2}
+                new ToDo { CreatorOfTask = "Alex", Description = "Støvsugva", StartTime = DateTime.Now, EndTime = DateTime.Now, TaskTitle = "title", UserId = 2}
             );
 
             context.SaveChanges();

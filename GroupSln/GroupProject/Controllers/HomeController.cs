@@ -13,14 +13,13 @@ public class HomeController : Controller
     {
         repository = repo;
     }
-
-
+    
     public IActionResult Index() => View(repository.Users);
 
-    public IActionResult Login() => View();
+    public IActionResult SignUp() => View();
 
     [HttpPost]
-    public IActionResult Login(User user)
+    public IActionResult SignUp(User user)
     {
         if (ModelState.IsValid) {
             repository.Create(user);
@@ -33,10 +32,12 @@ public class HomeController : Controller
     }
 
 
-    public IActionResult Details()
+    public IActionResult Login()
     {
         return View(repository.Users);
     }
+    
+    
 
     public IActionResult Users()
     {
@@ -55,7 +56,7 @@ public class HomeController : Controller
     {
         repository.Save(user);
         
-        return View("Details");
+        return View("Users");
     }
     
     public IActionResult DetailsUser(long id)
