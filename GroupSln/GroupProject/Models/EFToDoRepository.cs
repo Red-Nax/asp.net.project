@@ -1,11 +1,11 @@
 ﻿
 namespace GroupProject.Models;
 
-public class EFStoreRepository : IStoreRepository
+public class EFToDoRepository : IToDoRepository
 {
-    private StoreDbContext _context;
+    private ToDoDbContext _context;
 
-    public EFStoreRepository(StoreDbContext ctx)
+    public EFToDoRepository(ToDoDbContext ctx)
     {
         _context = ctx;
     }

@@ -1,6 +1,6 @@
 ﻿namespace GroupProject.Models;
 
-public interface IStoreRepository
+public interface IToDoRepository
 {
     //TODO Her manglar okkurt at gera! Síða 181 PDF page
     IQueryable<User> Users { get; }

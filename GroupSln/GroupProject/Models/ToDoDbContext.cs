@@ -2,9 +2,9 @@
 
 namespace GroupProject.Models;
 
-public class StoreDbContext : DbContext
+public class ToDoDbContext : DbContext
 {
-    public StoreDbContext(DbContextOptions<StoreDbContext> options)
+    public ToDoDbContext(DbContextOptions<ToDoDbContext> options)
             : base(options) { }
         public DbSet<User> Users => Set<User>();
         public DbSet<ToDo> ToDos => Set<ToDo>();

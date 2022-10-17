@@ -6,12 +6,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<StoreDbContext>(opts => {
+builder.Services.AddDbContext<ToDoDbContext>(opts => {
     opts.UseSqlServer(
         builder.Configuration["ConnectionStrings:GroupProjectConnection"]);
 });
 
-builder.Services.AddScoped<IStoreRepository, EFStoreRepository>();
+builder.Services.AddScoped<IToDoRepository, EFToDoRepository>();
 
 var app = builder.Build();
 

@@ -7,9 +7,9 @@ namespace ASP_NetProject.Controllers;
 
 public class HomeController : Controller
 {
-    private IStoreRepository repository;
+    private IToDoRepository repository;
 
-    public HomeController(IStoreRepository repo)
+    public HomeController(IToDoRepository repo)
     {
         repository = repo;
     }
